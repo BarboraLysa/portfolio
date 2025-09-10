@@ -131,7 +131,7 @@ function Home() {
 
 function EducationBox() {
   const educationList = [
-    { school: "Brno University of Technology", major: "Telecomunication and Information Technology", year: "2021 - 2025" },
+    { school: "Brno University of Technology", major: "Telecomunications and Information Technology", year: "2021 - 2025" },
     { school: "Secondary Technical School of Electrical Engineering, Karola Adlera 5", major: "Industrial Informatics", year: "2017 - 2021" },
   ];
 
