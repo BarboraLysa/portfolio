@@ -12,24 +12,49 @@ function Layout({ children }) {
   ];
 
   const location = useLocation();
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(() => {
+    const initialIndex = navItems.findIndex(item => item.path === location.pathname);
+    return initialIndex === -1 ? 0 : initialIndex;
+  });
+
   const navRefs = useRef([]);
 
+  // Track bubble position
+  const [bubbleStyle, setBubbleStyle] = useState({ left: 0, width: 0, opacity: 0 });
+
+  // Update activeIndex on route change
   useEffect(() => {
     const index = navItems.findIndex((item) => item.path === location.pathname);
     setActiveIndex(index === -1 ? 0 : index);
   }, [location.pathname]);
 
+  // Measure bubble after refs are mounted
+  useEffect(() => {
+    if (!navRefs.current[activeIndex]) return;
+
+    const updateBubble = () => {
+      const { offsetLeft, offsetWidth } = navRefs.current[activeIndex];
+      setBubbleStyle({ left: offsetLeft, width: offsetWidth, opacity: 1 });
+    };
+
+    // Wait a frame to ensure DOM is ready
+    requestAnimationFrame(updateBubble);
+
+    // Optional: update on resize
+    window.addEventListener("resize", updateBubble);
+    return () => window.removeEventListener("resize", updateBubble);
+  }, [activeIndex]);
+
   return (
     <div className="min-h-screen bg-zinc-900 text-gray-100 flex flex-col items-center">
-      {/* Navbar */}
       <nav className="mt-6 mb-10 px-8 py-3 bg-black rounded-full shadow-lg flex space-x-6 relative">
         {/* Red Bubble */}
         <div
-          className="absolute top-1/2 -translate-y-1/2 h-8 bg-red-600 rounded-full transition-all duration-300"
+          className="absolute top-1/2 -translate-y-1/2 h-8 bg-red-600 rounded-full transition-all duration-500"
           style={{
-            width: navRefs.current[activeIndex]?.offsetWidth + "px",
-            left: navRefs.current[activeIndex]?.offsetLeft + "px",
+            left: bubbleStyle.left + "px",
+            width: bubbleStyle.width + "px",
+            opacity: bubbleStyle.opacity,
           }}
         />
 
@@ -45,11 +70,12 @@ function Layout({ children }) {
         ))}
       </nav>
 
-      {/* Content */}
       <main className="w-full max-w-5xl px-6">{children}</main>
     </div>
   );
 }
+
+
 
 
 
