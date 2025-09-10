@@ -209,7 +209,7 @@ import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 function Contact() {
   const contacts = [
-    { icon: <FaLinkedin size={36} />, link: "www.linkedin.com/in/barboralysa" },
+    { icon: <FaLinkedin size={36} />, link: "https://www.linkedin.com/in/barboralysa" },
     { icon: <FaGithub size={36} />, link: "https://github.com/BarboraLysa" },
     { icon: <FaEnvelope size={36} />, link: "mailto:blys2508@gmail.com" },
   ];
