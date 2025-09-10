@@ -78,15 +78,14 @@ function Layout({ children }) {
 
 
 
-
 function Home() {
   const homeSections = [
     {
       title: "About",
-      content: "Hi, I’m Barbora, a software developer and electronics enthusiast based in Brno, Czech Republic. I love solving problems, turning ideas into real products, and that little rush when code finally works. When I’m not programming, you’ll find me making music—playing guitar, piano, ukulele, or singing—or gaming. I’m also a proud mom to my little rat Lilo and my partner’s dog, Jarvis. I’m passionate about projects that combine creativity and technology, and I’m always excited to learn, explore, and build something new.",
+      content:
+        "Hi, I’m Barbora, a software developer and electronics enthusiast based in Brno, Czech Republic. I love solving problems, turning ideas into real products, and that little rush when code finally works. When I’m not programming, you’ll find me making music—playing guitar, piano, ukulele, or singing—or gaming. I’m also a proud mom to my little rat Lilo and my partner’s dog, Jarvis. I’m passionate about projects that combine creativity and technology, and I’m always excited to learn, explore, and build something new.",
     },
     {
-      
       content: (
         <div className="w-full h-[300px]">
           <Spline scene="https://prod.spline.design/H5OhV1hPttKA5E2k/scene.splinecode" />
@@ -108,7 +107,17 @@ function Home() {
       <div className="text-center">
         <h2 className="text-4xl font-bold mb-4">Barbora Lysá</h2>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] gap-8 w-full max-w-5xl px-6 justify-items-center">
+
+      <div className="
+        grid 
+        grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] 
+        sm:grid-cols-[repeat(auto-fit,minmax(20rem,1fr))]
+        gap-8 
+        w-full 
+        max-w-5xl 
+        px-4 sm:px-6 
+        justify-items-center 
+        mx-auto">
         {homeSections.map((section, i) => (
           <div
             key={i}
@@ -119,13 +128,16 @@ function Home() {
                 {section.title}
               </span>
             )}
-            <div className="text-gray-300 text-left w-full">{section.content}</div>
+            <div className="text-gray-300 text-left w-full">
+              {section.content}
+            </div>
           </div>
         ))}
       </div>
     </div>
   );
 }
+
 
 
 
@@ -183,7 +195,16 @@ function Projects() {
     <div className="flex flex-col items-center gap-10">
       <h2 className="text-4xl font-bold mb-4 text-center">Projects</h2>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] gap-8 w-full max-w-5xl px-6 justify-items-center">
+      <div className="
+        grid 
+        grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] 
+        sm:grid-cols-[repeat(auto-fit,minmax(20rem,1fr))]
+        gap-8 
+        w-full 
+        max-w-5xl 
+        px-4 sm:px-6 
+        justify-items-center 
+        mx-auto">
         {projects.map((p, i) => (
           <div
             key={i}
