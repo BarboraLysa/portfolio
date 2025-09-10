@@ -275,7 +275,7 @@ export default function App() {
 
 function Footer() {
   return (
-    <footer className="w-full bg-black mt-16">
+    <footer className="w-full bg-zinc-900 mt-16">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6 flex justify-center text-gray-400 text-sm">
         © {new Date().getFullYear()} Barbora Lysá. All rights reserved.
       </div>
