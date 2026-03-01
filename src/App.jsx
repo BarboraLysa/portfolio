@@ -84,7 +84,7 @@ function Home() {
     {
       title: "About",
       content:
-        "Hi, I’m Barbora, a software developer and electronics enthusiast based in Brno, Czech Republic. I love solving problems, turning ideas into real products, and that little rush when code finally works. When I’m not programming, you’ll find me making music—playing guitar, piano, ukulele, or singing—or gaming. I’m also a proud mom to my little rat Lilo and my partner’s dog, Jarvis. I’m passionate about projects that combine creativity and technology, and I’m always excited to learn, explore, and build something new.",
+        "Hi, I’m Barbora, a software developer and electronics enthusiast based in Brno, Czech Republic. I love solving problems, turning ideas into real products, and that little rush when code finally works. When I’m not programming, you’ll find me making music or gaming. I’m also a proud mom to my little rat Lilo and my partner’s dog, Jarvis. I’m passionate about projects that combine creativity and technology, and I’m always excited to learn, explore, and build something new.",
     },
     {
       content: (
@@ -145,6 +145,7 @@ function Home() {
 function EducationBox() {
   const educationList = [
     { school: "Brno University of Technology", major: "Telecomunications and Information Technology", year: "2021 - 2025" },
+    { school: "IIS Olivetti", major: "Erasmus+ KA102 Mobility Program", year: "FEB 2020" },
     { school: "Secondary Technical School of Electrical Engineering, Karola Adlera 5", major: "Industrial Informatics", year: "2017 - 2021" },
   ];
 
